@@ -15,5 +15,5 @@
 import Foundation
 
 func millisecondsSinceMidnight(hours: Int, minutes: Int, seconds: Int) -> Int {
-    return 0
+    return (hours * 60 * 60 * 1000) + (minutes * 60 * 1000) + (seconds * 1000)
 }

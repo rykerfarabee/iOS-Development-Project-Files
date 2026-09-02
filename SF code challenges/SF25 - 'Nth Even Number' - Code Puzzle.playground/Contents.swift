@@ -17,3 +17,6 @@
     //  Add a boolean parameter called "even". If true, return the nth even number; if false, return the nth odd number.
 
 import Foundation
+func nthEvenNumber(n: Int) -> Int {
+    return n * 2 - 2
+}
