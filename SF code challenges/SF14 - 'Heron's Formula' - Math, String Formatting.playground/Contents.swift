@@ -6,6 +6,13 @@
     //  Look up Heron's formula. Note that it is composed of two equations; one defines "s", and the other uses the result of that equation to find "A", the area.
     //  Create a function that takes in the three sides and returns a String of the resulting area.
     //  Your output should have two digit precision.
+import Foundation
+func heronsFormula(a: Double, b: Double, c: Double) -> String {
+    let s = (a + b + c) / 2
+    let area = sqrt(s * (s - a) * (s - b) * (s - c))
+    return String(format: "%.2f", area)
+}
+print(heronsFormula(a: 4, b: 13, c: 15))
 
 //  Notes:
     //  You may refer to your last code challenge to remember how to output a number as a string with two digit precision.
@@ -19,4 +26,3 @@
     //  For any three sides to form a triangle, the sum of any two sides must be greater than the third side.
     //  If the sides do not form a valid triangle, return an appropriate error message.
 
-import Foundation
