@@ -22,6 +22,11 @@ class Spaceship {
             print("Sorry, your ship was hit one too many times. Do you want to play again?")
         }
     }
+    init(name: String, health: Int, position: Int) {
+        self.name = name
+        self.health = health
+        self.position = position
+    }
 }
 
 class Fighter: Spaceship {
@@ -35,6 +40,11 @@ class Fighter: Spaceship {
             print("You have no more fire power.")
         }
     }
+    init(weapon: String, remainingFirePower: Int, name: String, health: Int, position: Int) {
+        self.weapon = weapon
+        self.remainingFirePower = remainingFirePower
+        super.init(name: name, health: health, position: position)
+    }
 }
 
 class ShieldedShip: Fighter {
@@ -46,6 +56,10 @@ class ShieldedShip: Fighter {
         } else {
             super.wasHit()
         }
+    }
+    init(shieldStrength: Int, weapon: String, remainingFirePower: Int, name: String, health: Int, position: Int) {
+        self.shieldStrength = shieldStrength
+        super.init(weapon: weapon, remainingFirePower: remainingFirePower, name: name, health: health, position: position)
     }
 }
 /*:
