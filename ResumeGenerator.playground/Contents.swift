@@ -26,7 +26,7 @@ struct ResumeGenerator {
     static func randomFormatNumber() -> Int {
         return Int.random(in: 1...formatCount)
     }
-
+ 
     var formatTitle: String {
         switch formatNumber {
         case 1:
