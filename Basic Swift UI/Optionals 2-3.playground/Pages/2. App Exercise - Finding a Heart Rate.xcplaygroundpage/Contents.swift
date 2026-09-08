@@ -7,11 +7,11 @@
 
  Declare a variable `heartRate` of type `Int?` and set it to `nil`. Print the value.
  */
-
-
+var heartRate: Int? = nil
+print(heartRate)
 //:  In this example, if the user fixes the positioning of the heart rate monitor, the app may get a proper heart rate reading. Below, update the value of `heartRate` to 74. Print the value.
-
-
+heartRate = 74
+print(heartRate)
 //:  As you've done in other app exercises, create a variable `hrAverage` of type `Int` and use the values stored below and the value of `heartRate` to calculate an average heart rate.
 let oldHR1 = 80
 let oldHR2 = 76
