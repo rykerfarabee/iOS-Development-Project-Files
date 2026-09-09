@@ -17,7 +17,13 @@ let oldHR1 = 80
 let oldHR2 = 76
 let oldHR3 = 79
 let oldHR4 = 70
-
+var hrAverage: Int
+if let heartRate = heartRate {
+    hrAverage = (heartRate + oldHR1 + oldHR2 + oldHR3 + oldHR4) / 5
+} else {
+    hrAverage = (oldHR1 + oldHR2 + oldHR3 + oldHR4) / 4
+}
+print(hrAverage)
 
 /*:
  If you didn't unwrap the value of `heartRate`, you've probably noticed that you cannot perform mathematical operations on an optional value. You will first need to unwrap `heartRate`.
