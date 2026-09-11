@@ -10,3 +10,11 @@
     //  Create a second function for the same purpose. Return an array of Ints without using a for loop. (This will require a special method -- look it up!)
 
 import Foundation
+
+func multiplyByFive(_ numbers: [Int]) -> [Int] {
+    return numbers.map { $0 * 5 }
+}
+let numbers = [1, 2, 3, 4]
+let result = multiplyByFive(numbers)
+
+print(result)
