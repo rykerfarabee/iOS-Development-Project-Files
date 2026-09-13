@@ -25,18 +25,223 @@ import Foundation
 
 class ParkingLot {
     var cashCollected = 0.0
-    var parkingSpace1 = ""
     
-    func parkCar(_ carType: String) {
-        parkingSpace1 = carType
+    var parkingSpace1 = ""
+    var parkingSpace2 = ""
+    var parkingSpace3 = ""
+    var parkingSpace4 = ""
+    var parkingSpace5 = ""
+    var parkingSpace6 = ""
+    var parkingSpace7 = ""
+    var parkingSpace8 = ""
+    var parkingSpace9 = ""
+    var parkingSpace10 = ""
+    var parkingSpace11 = ""
+    var parkingSpace12 = ""
+    var parkingSpace13 = ""
+    var parkingSpace14 = ""
+    var parkingSpace15 = ""
+    var parkingSpace16 = ""
+    var parkingSpace17 = ""
+    var parkingSpace18 = ""
+    var parkingSpace19 = ""
+    var parkingSpace20 = ""
+    
+    func parkCar(_ carType: String, parkingSpace: Int) {
+        switch parkingSpace {
+        case 1:
+            parkingSpace1 = carType
+        case 2:
+            parkingSpace2 = carType
+        case 3:
+            parkingSpace3 = carType
+        case 4:
+            parkingSpace4 = carType
+        case 5:
+            parkingSpace5 = carType
+        case 6:
+            parkingSpace6 = carType
+        case 7:
+            parkingSpace7 = carType
+        case 8:
+            parkingSpace8 = carType
+        case 9:
+            parkingSpace9 = carType
+        case 10:
+            parkingSpace10 = carType
+        case 11:
+            parkingSpace11 = carType
+        case 12:
+            parkingSpace12 = carType
+        case 13:
+            parkingSpace13 = carType
+        case 14:
+            parkingSpace14 = carType
+        case 15:
+            parkingSpace15 = carType
+        case 16:
+            parkingSpace16 = carType
+        case 17:
+            parkingSpace17 = carType
+        case 18:
+            parkingSpace18 = carType
+        case 19:
+            parkingSpace19 = carType
+        case 20:
+            parkingSpace20 = carType
+        default:
+            break
+        }
     }
     
-    func towCar() {
-        parkingSpace1 = ""
+    func towCar(parkingSpace: Int) {
+        switch parkingSpace {
+        case 1:
+            parkingSpace1 = ""
+        case 2:
+            parkingSpace2 = ""
+        case 3:
+            parkingSpace3 = ""
+        case 4:
+            parkingSpace4 = ""
+        case 5:
+            parkingSpace5 = ""
+        case 6:
+            parkingSpace6 = ""
+        case 7:
+            parkingSpace7 = ""
+        case 8:
+            parkingSpace8 = ""
+        case 9:
+            parkingSpace9 = ""
+        case 10:
+            parkingSpace10 = ""
+        case 11:
+            parkingSpace11 = ""
+        case 12:
+            parkingSpace12 = ""
+        case 13:
+            parkingSpace13 = ""
+        case 14:
+            parkingSpace14 = ""
+        case 15:
+            parkingSpace15 = ""
+        case 16:
+            parkingSpace16 = ""
+        case 17:
+            parkingSpace17 = ""
+        case 18:
+            parkingSpace18 = ""
+        case 19:
+            parkingSpace19 = ""
+        case 20:
+            parkingSpace20 = ""
+        default:
+            break
+        }
+    }
+    
+    func giveTicket(parkingSpace: Int) {
+        switch parkingSpace {
+        case 1:
+            parkingSpace1 += "- TICKETED"
+        case 2:
+            parkingSpace2 += "- TICKETED"
+        case 3:
+            parkingSpace3 += "- TICKETED"
+        case 4:
+            parkingSpace4 += "- TICKETED"
+        case 5:
+            parkingSpace5 += "- TICKETED"
+        case 6:
+            parkingSpace6 += "- TICKETED"
+        case 7:
+            parkingSpace7 += "- TICKETED"
+        case 8:
+            parkingSpace8 += "- TICKETED"
+        case 9:
+            parkingSpace9 += "- TICKETED"
+        case 10:
+            parkingSpace10 += "- TICKETED"
+        case 11:
+            parkingSpace11 += "- TICKETED"
+        case 12:
+            parkingSpace12 += "- TICKETED"
+        case 13:
+            parkingSpace13 += "- TICKETED"
+        case 14:
+            parkingSpace14 += "- TICKETED"
+        case 15:
+            parkingSpace15 += "- TICKETED"
+        case 16:
+            parkingSpace16 += "- TICKETED"
+        case 17:
+            parkingSpace17 += "- TICKETED"
+        case 18:
+            parkingSpace18 += "- TICKETED"
+        case 19:
+            parkingSpace19 += "- TICKETED"
+        case 20:
+            parkingSpace20 += "- TICKETED"
+        default:
+            break
+        }
+    }
+    
+    func collectFee(parkingSpace: Int) {
+        var car = ""
+        
+        switch parkingSpace {
+        case 1:
+            car = parkingSpace1
+        case 2:
+            car = parkingSpace2
+        case 3:
+            car = parkingSpace3
+        case 4:
+            car = parkingSpace4
+        case 5:
+            car = parkingSpace5
+        case 6:
+            car = parkingSpace6
+        case 7:
+            car = parkingSpace7
+        case 8:
+            car = parkingSpace8
+        case 9:
+            car = parkingSpace9
+        case 10:
+            car = parkingSpace10
+        case 11:
+            car = parkingSpace11
+        case 12:
+            car = parkingSpace12
+        case 13:
+            car = parkingSpace13
+        case 14:
+            car = parkingSpace14
+        case 15:
+            car = parkingSpace15
+        case 16:
+            car = parkingSpace16
+        case 17:
+            car = parkingSpace17
+        case 18:
+            car = parkingSpace18
+        case 19:
+            car = parkingSpace19
+        case 20:
+            car = parkingSpace20
+        default:
+            return
+        }
+        
+        cashCollected += Double(car.count)
     }
 }
 
 var parkingLot = ParkingLot()
-    
-parkingLot.parkCar("Ford Pinto")
+
+parkingLot.parkCar("Ford Pinto", parkingSpace: 1)
+
 
