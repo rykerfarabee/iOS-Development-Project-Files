@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9949566530547BA800EE74B3 /* Build configuration list for PBXProject "ScratchPaper" */;
+			buildConfigurationList = 9949566530547BA800EE74B3 /* Build configuration list for PBXProject "Pickers" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -309,7 +309,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9949566530547BA800EE74B3 /* Build configuration list for PBXProject "ScratchPaper" */ = {
+		9949566530547BA800EE74B3 /* Build configuration list for PBXProject "Pickers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9949567330547BAB00EE74B3 /* Debug */,
