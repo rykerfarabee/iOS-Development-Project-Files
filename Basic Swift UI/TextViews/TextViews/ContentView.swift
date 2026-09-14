@@ -10,12 +10,35 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            
+            Text("Ryker")
+                .font(.title)
+                .bold()
+                .foregroundStyle(.blue)
+                .padding()
+            
+            Text("""
+            About Me
+            
+            I'm 17 years old I have 2 siblings and 2 step siblings.
+            I want to be a pilot eventually but I don't like school.
+            I used to play clarinet but I don't anymore
+            """)
+            .font(.body)
+            .foregroundStyle(.black)
+            .padding()
+            
+            Text("""
+            Fun Facts
+            
+            I can do 3 flips on ground
+            I play a lot of siege(Shocker)
+            I have 2 pet geckos
+            """)
+            .font(.body)
+            .foregroundStyle(.purple)
+            .padding()
         }
-        .padding()
     }
 }
 
