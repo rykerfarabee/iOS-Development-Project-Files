@@ -17,3 +17,12 @@
     //  You can find phone number formats here: 🔗https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
 
 import Foundation
+
+func phoneNumber(number: String) -> String? {
+    if number.count == 10 {
+        return "(\(number.prefix(3)))-\(number.dropFirst(3).prefix(3))-\(number.dropFirst(6))"
+    } else {
+     return nil
+    }
+}
+print(phoneNumber(number: "1234567890")!)

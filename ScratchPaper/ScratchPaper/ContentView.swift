@@ -2,24 +2,23 @@
 //  ContentView.swift
 //  ScratchPaper
 //
-//  Created by Ryker Farabee on 9/11/26.
+//  Created by Ryker Farabee on 9/11/02.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    @State var ticketsSold = 0
-    @State var ticketsRefunded = 0
+    @State var selectedDogName = ""
     var body: some View {
-        VStack {
-            Text("Tickets Sold: \(ticketsSold)")
-            Text("Tickets Refunded: \(ticketsRefunded)")
-            Button("Sell Ticket") {
-                ticketsSold += 1
-            }
-            Button("Refund Ticket") {
-                ticketsRefunded += 1
-            }
+        Text("Selected Name: \(selectedDogName)")
+        Picker("Cool Dog Name", selection: $selectedDogName) {
+            Text("Shredder").tag("shredder")
+            Text("Cupcake").tag("cupcake")
+            Text("Snoopy").tag("snoopy")
+            Text("Commander Beefsweat").tag("commander beefsweat")
         }
     }
+}
+#Preview {
+    ContentView()
 }
