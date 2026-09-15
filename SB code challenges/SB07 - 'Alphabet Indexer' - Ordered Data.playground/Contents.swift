@@ -17,3 +17,16 @@
     //  Rewrite your function to not rely on using a literal array for the alphabet. (In other words, the alphabet itself should not appear in your function.)
 
 import Foundation
+
+func alphabetPosition(_ letter: String) -> Int {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    guard letter.count == 1,
+          let position = alphabet.firstIndex(of: Character(letter.lowercased())) else {
+        fatalError("Input must be a single letter")
+    }
+
+    return alphabet.distance(from: alphabet.startIndex, to: position) + 1
+}
+
+
