@@ -23,6 +23,7 @@ struct hello: Greetable {
     var age: (Int) -> Void = {
         age in print("You are \(age) years old")
     }
+    
 }
 
 
