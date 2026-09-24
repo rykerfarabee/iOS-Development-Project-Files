@@ -14,3 +14,7 @@ extension String {
 }
 let greet = "Hello"
 print(greet.shout())
+enum LibrarySection{
+    case fiction, nonFiction, reference, periodicals
+}
+let currentSelection: LibrarySection = .periodicals

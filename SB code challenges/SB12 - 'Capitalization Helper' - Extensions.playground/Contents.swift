@@ -19,9 +19,11 @@
 import Foundation
 
 extension String {
-    static func capitalizeWord(_ input: String) -> String {
-        input.lowercased()
-        input[0].toUpperCase()
-        return input
+   mutating func capitalizeWord() -> String {
+       return self.prefix(1).uppercased() + self.dropFirst().lowercased()
     }
 }
+let input = "CLOWN HUSBANDRY"
+var output = input.capitalizeWord(input)
+print(output)
+
