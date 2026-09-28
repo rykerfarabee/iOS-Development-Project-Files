@@ -18,19 +18,44 @@
 import SwiftUI
 import PlaygroundSupport
 
+struct CardModifier: ViewModifier {
+    var backgroundColor: Color
+    var padding: CGFloat
+
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Futura", size: 20))
+            .padding(padding)
+            .background {
+                RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                    .foregroundStyle(
+                        backgroundColor.gradient.shadow(.inner(radius: 3))
+                    )
+            }
+    }
+}
+
+extension View {
+    func mindfulnessCard(
+        backgroundColor: Color = .cyan,
+        padding: CGFloat = 20
+    ) -> some View {
+        modifier(
+            CardModifier(
+                backgroundColor: backgroundColor,
+                padding: padding
+            )
+        )
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         Text("You are a good person")
-        //  FIXME: Move these view modifiers to a single ViewModifier
-            .font(.custom("Futura", size: 20))
-            .padding(20)
-            .background {
-                RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                    .foregroundStyle(.cyan.gradient.shadow(.inner(radius: 3)))
-            }
-        
+            .mindfulnessCard()
     }
 }
+
 
 PlaygroundPage.current.setLiveView(ContentView())
 

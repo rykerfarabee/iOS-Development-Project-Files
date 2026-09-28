@@ -23,6 +23,14 @@ print(checkAge("21"))
 var prices = ["Chips": 3.69, "Donuts": 1.89, "Juice": 4.99, "Apple": 0.70, "Banana": 0.53, "Broccoli": 1.99]
 var stock = ["Chips": 4, "Donuts": 0, "Juice": 12, "Apple": 6, "Banana": 6, "Broccoli": 3]
 
+func price(_ item: String) -> Double? {
+    if let quantity = stock[item], quantity > 0 {
+        return prices[item]
+    }
+    return nil
+}
+
+print(price("Chips"))
 
 /*:
 [Previous](@previous)  |  page 3 of 6  |  [Next: App Exercise - Food Functions](@next)
