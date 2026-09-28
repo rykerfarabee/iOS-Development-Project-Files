@@ -7,15 +7,40 @@
 
 import SwiftUI
 
+struct Park: Hashable {
+    let name: String
+    let year: Int
+    let acres: Int
+    let closestTown: String
+}
+
 struct ContentView: View {
-    @State var selectedDogName = ""
+    let zion = Park(name: "Zion", year: 1919, acres: 147000, closestTown: "Springdale")
+    let yellowstone = Park(name: "Yellowstone", year: 1872, acres: 2219791, closestTown: "West Yellowstone")
+    let yosemite = Park(name: "Yosemite", year: 1890, acres: 759620, closestTown: "Yosemite Village")
+    let grandCanyon = Park(name: "Grand Canyon", year: 1919, acres: 1217262, closestTown: "Tusayan")
+
+    @State private var selectedPark = Park(
+        name: "Zion",
+        year: 1919,
+        acres: 147000,
+        closestTown: "Springdale"
+    )
+
     var body: some View {
-        Text("Selected Name: \(selectedDogName)")
-        Picker("Cool Dog Name", selection: $selectedDogName) {
-            Text("Shredder").tag("shredder")
-            Text("Cupcake").tag("cupcake")
-            Text("Snoopy").tag("snoopy")
-            Text("Commander Beefsweat").tag("commander beefsweat")
+        VStack {
+            Picker("Park", selection: $selectedPark) {
+                Text(zion.name).tag(zion)
+                Text(yellowstone.name).tag(yellowstone)
+                Text(yosemite.name).tag(yosemite)
+                Text(grandCanyon.name).tag(grandCanyon)
+            }
+            .pickerStyle(.segmented)
+
+            Text("Name: \(selectedPark.name)")
+            Text("Year: \(selectedPark.year)")
+            Text("Acres: \(selectedPark.acres)")
+            Text("Closest town: \(selectedPark.closestTown)")
         }
     }
 }
