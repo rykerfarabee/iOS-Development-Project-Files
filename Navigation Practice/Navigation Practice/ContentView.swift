@@ -9,28 +9,53 @@ import SwiftUI
 
 struct ContentView: View {
     let settings = ["Wifi", "Bluetooth", "Screen Time", "Sound", "Display", "Privacy"]
+    @State private var showSheet = false
 
     var body: some View {
         NavigationStack {
             List(settings, id: \.self) { setting in
                 NavigationLink(setting) {
-                    SettingView(title: setting)
+                    Text(setting)
                 }
             }
             .navigationTitle("Settings")
+            .toolbar {
+                Button("+") {
+                    showSheet = true
+                }
+            }
+            .sheet(isPresented: $showSheet) {
+                AddView()
+            }
         }
     }
 }
 
-struct SettingView: View {
-    let title: String
+struct AddView: View {
+    @Environment(\.dismiss) var dismiss
+    @State private var text = ""
 
     var body: some View {
-        VStack {
-            Text("*Setting Info*")
-                .font(.title)
+        NavigationStack {
+            Form {
+                TextField("Name", text: $text)
+            }
+            .navigationTitle("Add Setting")
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Save") {
+                        print(text)
+                        dismiss()
+                    }
+                }
+            }
         }
-        .navigationTitle(title)
     }
 }
 

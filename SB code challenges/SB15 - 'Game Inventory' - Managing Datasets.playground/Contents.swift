@@ -20,8 +20,27 @@ import Foundation
 
 class Inventory {
     var items: [Item] = initialItems
-    
-    // MARK: Add Inventory functionality here
+    func checkInventory() {
+        items.forEach { print($0.name) }
+    }
+    func gainItem(_ item: Item) {
+        items.append(item)
+    }
+    func discardItem(at index: Int) {
+        items.remove(at: index)
+    }
+    func useItem(at index: Int) {
+        items[index].quantity -= 1
+        print("You used a \(items[index].name)")
+        if items[index].quantity == 0 {
+            items.remove(at: index)
+        }
+    }
+    func rearrangeItems(from sourceIndex: Int, to destinationIndex: Int) {
+        let item = items.remove(at: sourceIndex)
+        items.insert(item, at: destinationIndex)
+    }
+
 }
 
 enum ItemType {
