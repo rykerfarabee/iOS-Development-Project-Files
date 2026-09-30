@@ -9,22 +9,28 @@
 
  Open the live view before you run this page. In Xcode, choose View > Assistant Editor > Show Assistant Editor. The first run on this page can take twenty seconds or so.
  */
-
-
 import SwiftUI
 import PlaygroundSupport
 
 struct StepCounterView: View {
+    @State private var stepCount = 0
+    
     var body: some View {
         VStack {
             Text("Steps today")
-
+            
+            Text("\(stepCount)")
+            
+            Button("Add 500 steps") {
+                stepCount += 500
+            }
         }
         .frame(width: 320, height: 480)
     }
 }
 
 PlaygroundPage.current.setLiveView(StepCounterView())
+
 
 
 /*:

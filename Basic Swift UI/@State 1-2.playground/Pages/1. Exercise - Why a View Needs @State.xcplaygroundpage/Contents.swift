@@ -14,28 +14,28 @@
 import SwiftUI
 
 //struct BrokenCounterView: View {
-//    var tapCount = 0
-//
+  //  var tapCount = 0
+
 //    var body: some View {
-//        VStack {
-//            Text("Taps: \(tapCount)")
-//            Button("Tap me") {
-//                tapCount += 1
-//            }
-//        }
-//    }
+  //      VStack {
+    //        Text("Taps: \(tapCount)")
+      //      Button("Tap me") {
+        //        tapCount += 1
+          //  }
+       // }
+  //  }
 //}
 
 
 //:  Write the error message Xcode gave you in a comment below. Start a line with `//` to write a comment.
-
+// left side of mutating operator isn't mutable: 'self' is immutable
 
 
 
 
 //:  The button's action runs inside `body`, and `body` is not `mutating`. Explain in a comment why that stops `tapCount += 1` from working.
 
-
+// Not being mutating makes tapCount not work because it makes it so tapCount cant actually change the value
 
 
 
