@@ -14,12 +14,25 @@ import PlaygroundSupport
 
 struct WorkoutView: View {
     @State private var minutesExercised = 0
+    @State private var goalMet = false
+    @State private var workoutName = "Morning walk"
 
     var body: some View {
         VStack {
+            Text(workoutName)
             Text("Minutes: \(minutesExercised)")
+            Text(goalMet ? "Goal met" : "Not there yet")
+
             Button("Add 10 minutes") {
                 minutesExercised += 10
+            }
+
+            Button("Toggle goal") {
+                goalMet.toggle()
+            }
+
+            Button("Rename to Evening run") {
+                workoutName = "Evening run"
             }
         }
         .frame(width: 320, height: 480)
@@ -27,7 +40,6 @@ struct WorkoutView: View {
 }
 
 PlaygroundPage.current.setLiveView(WorkoutView())
-
 
 /*:
  Make all six changes below inside `WorkoutView` in the code above.

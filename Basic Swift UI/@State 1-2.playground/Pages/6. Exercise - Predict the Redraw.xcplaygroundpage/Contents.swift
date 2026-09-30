@@ -30,7 +30,7 @@ PlaygroundPage.current.setLiveView(DailySummaryView())
 
 
 //:  Predict what each of the three `Text` views will show after you tap the button one time. Write all three predictions in comments below before you run anything.
-
+// line 1 would say Monday line 2 would say Step: 2000 line 3 would say Not there yet
 
 
 
@@ -40,7 +40,7 @@ PlaygroundPage.current.setLiveView(DailySummaryView())
 
  Two of the three `Text` views show exactly what they showed before. SwiftUI rebuilt both of them anyway. Explain in a comment why that still counts as a redraw.
  */
-
+// because it just redraws the whole struct
 
 
 

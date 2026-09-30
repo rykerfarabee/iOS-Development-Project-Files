@@ -11,14 +11,33 @@ import SwiftUI
 import PlaygroundSupport
 
 struct GoalTrackerView: View {
+    @State var stepGoal: Int = 5000
+    
     var body: some View {
         VStack {
             Text("Step goal")
-
+            Text("\(stepGoal)")
+            
+            Spacer()
+            
+            HStack {
+                Button("-1000") {
+                    stepGoal -= 1000
+                }
+                
+                Button("Reset") {
+                    stepGoal = 5000
+                }
+                
+                Button("+1000") {
+                    stepGoal += 1000
+                }
+            }
         }
         .frame(width: 320, height: 480)
     }
 }
+
 
 PlaygroundPage.current.setLiveView(GoalTrackerView())
 

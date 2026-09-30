@@ -11,16 +11,35 @@ import SwiftUI
 import PlaygroundSupport
 
 struct MyTrackerView: View {
+    @State private var count = 0
+    @State private var message = "Hello"
+    @State private var isOn = false
 
     var body: some View {
         VStack {
+            Text("\(count)")
+            Button("Change Int") {
+                count += 1
+            }
 
+            Text(message)
+            Button("Change String") {
+                message = "Updated"
+            }
+
+            Text("\(isOn)")
+            Button("Change Bool") {
+                isOn.toggle()
+            }
+
+            Spacer()
         }
         .frame(width: 320, height: 480)
     }
 }
 
 PlaygroundPage.current.setLiveView(MyTrackerView())
+
 
 
 /*:
