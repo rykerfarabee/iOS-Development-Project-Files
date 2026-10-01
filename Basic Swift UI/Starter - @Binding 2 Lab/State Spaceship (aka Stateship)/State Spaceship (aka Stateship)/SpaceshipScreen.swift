@@ -10,6 +10,7 @@ import SwiftUI
 struct SpaceshipScreen: View {
     @State var shipHeading: String = ""
     @State var availablePower: Int = 10
+
     var body: some View {
         Form {
             Section("Helm Station") {
@@ -38,32 +39,45 @@ struct SpaceshipScreen: View {
 
 struct HelmStation: View {
     @Binding var shipHeading: String
+    @State var inChair = false
+
     var body: some View {
         HStack {
-            CrewChair(crewIcon: "dog")
+            CrewChair(crewIcon: "dog", inChair: $inChair)
 
-            TextField("Heading", text: .constant("SYSTEM OFFLINE"))
+            TextField("Heading", text: $shipHeading)
+                .disabled(!inChair)
         }
     }
 }
 
 struct WeaponsStation: View {
     @Binding var availablePower: Int
+    @State var weaponsOnline = false
+    @State var inChair = false
+
     var body: some View {
         HStack {
-            CrewChair(crewIcon: "cat")
+            CrewChair(crewIcon: "cat", inChair: $inChair)
 
             VStack {
-                Text("Weapons: OFFLINE")
+                Text(weaponsOnline ? "Weapons: ONLINE" : "Weapons: OFFLINE")
 
                 Button("Power Weapons Up/Down") {
-                    // Weapons cost 3 power when they are online.
+                    if weaponsOnline {
+                        weaponsOnline = false
+                        availablePower += 3
+                    } else if availablePower >= 3 {
+                        weaponsOnline = true
+                        availablePower -= 3
+                    }
                 }
+                .disabled(!inChair)
 
                 Button("Fire!") {
                     print("PEW!")
                 }
-                .disabled(true)
+                .disabled(!inChair || !weaponsOnline)
             }
             .buttonStyle(.borderless)
         }
@@ -72,13 +86,15 @@ struct WeaponsStation: View {
 
 struct ShieldStation: View {
     @Binding var availablePower: Int
-    @State var shieldPower: Int = 0
+    @State var shieldPower = 0
+    @State var inChair = false
+
     var body: some View {
         HStack {
-            CrewChair(crewIcon: "lizard")
+            CrewChair(crewIcon: "lizard", inChair: $inChair)
 
-            Stepper("Shield Power: \(0)", onIncrement: {
-                if availablePower > 0 {
+            Stepper("Shield Power: \(shieldPower)", onIncrement: {
+                if availablePower >= 1 {
                     shieldPower += 1
                     availablePower -= 1
                 }
@@ -88,28 +104,39 @@ struct ShieldStation: View {
                     availablePower += 1
                 }
             })
+            .disabled(!inChair)
         }
     }
 }
 
 struct EngineStation: View {
     @Binding var availablePower: Int
+    @State var enginePower = 0
+    @State var inChair = false
+
     var body: some View {
         HStack {
-            CrewChair(crewIcon: "hare")
+            CrewChair(crewIcon: "hare", inChair: $inChair)
 
-            Stepper("Engine Power: \(0)", onIncrement: {
-
+            Stepper("Engine Power: \(enginePower)", onIncrement: {
+                if availablePower >= 1 {
+                    enginePower += 1
+                    availablePower -= 1
+                }
             }, onDecrement: {
-
+                if enginePower > 0 {
+                    enginePower -= 1
+                    availablePower += 1
+                }
             })
+            .disabled(!inChair)
         }
     }
 }
 
 struct CrewChair: View {
     var crewIcon: String
-    @State var inChair: Bool = false
+    @Binding var inChair: Bool
 
     var body: some View {
         Button {

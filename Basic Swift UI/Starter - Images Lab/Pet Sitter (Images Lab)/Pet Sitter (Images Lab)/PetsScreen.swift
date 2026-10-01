@@ -11,17 +11,82 @@ struct PetsScreen: View {
         // the ScrollView or the VStack.
         ScrollView {
             VStack(spacing: 24) {
-                // Step 1: replace this with the header.
-                Text("Header")
+           
+                ZStack {
+                    Image("pet1")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 350, height: 220)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
 
-                // Step 2: replace this with the row of pets.
-                Text("Pets")
+                    Text("This Week's Pets")
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundStyle(.white)
+                }
 
-                // Step 3: replace this with the care icons.
-                Text("Care")
+                HStack {
+                    Image("pet1")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 90, height: 90)
+                        .clipShape(Circle())
+                        .overlay(
+                            Circle()
+                                .stroke(.blue, lineWidth: 3)
+                        )
 
-                // Step 4: replace this with the full photo.
-                Text("Full Photo")
+                    Image("pet2")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 90, height: 90)
+                        .clipShape(Circle())
+                        .overlay(
+                            Circle()
+                                .stroke(.green, lineWidth: 3)
+                        )
+
+                    Image("pet3")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 90, height: 90)
+                        .clipShape(Circle())
+                        .overlay(
+                            Circle()
+                                .stroke(.orange, lineWidth: 3)
+                        )
+                }
+
+                HStack {
+                    VStack {
+                        Image(systemName: "fork.knife")
+                            .font(.title)
+                            .foregroundStyle(.red)
+
+                        Text("Fed twice a day")
+                    }
+
+                    VStack {
+                        Image(systemName: "figure.walk")
+                            .font(.title)
+                            .foregroundStyle(.blue)
+
+                        Text("Two walks")
+                    }
+
+                    VStack {
+                        Image(systemName: "drop.fill")
+                            .font(.title)
+                            .foregroundStyle(.cyan)
+
+                        Text("Fresh water")
+                    }
+                }
+
+                Image("pet2")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 350, height: 300)
             }
             .padding()
         }

@@ -5,8 +5,8 @@
  */
 for _ in 0..<10 {
     let foo = 55
-    print("The value of foo is \(foo)")
 }
+print("The value of foo is \(foo)")
 //it would be an error because 55 > 10
 
 

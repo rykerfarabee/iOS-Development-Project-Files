@@ -12,8 +12,6 @@ extension Collection {
         !self.isEmpty
     }
 }
-let blank = ""
-let isNotEmpty = blank.isNotEmpty
 
 extension String {
     var isValidEmail: Bool {
@@ -28,5 +26,3 @@ extension String {
         return "\(prefix)\(self)"
     }
 }
-let url = "www.hackingwithswift.com"
-let fullURL = url.withPrefix("https://")

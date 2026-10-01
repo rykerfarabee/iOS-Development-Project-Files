@@ -21,20 +21,6 @@ struct ContentView: View {
     }
 }
 
-struct FinalView: View {
-    var body: some View {
-        Text("The final view.")
-        
-        NavigationLink("Click me!", destination: SecondaryView())
-    }
-}
-
-struct ThirdView: View {
-    var body: some View {
-        Text("The third view. How do you get here?")
-    }
-}
-
 struct StartingView: View {
     var body: some View {
         Text("This is the first view.")
@@ -50,6 +36,21 @@ struct SecondaryView: View {
         Text("The second view!")
         
         NavigationLink("Tap me!", destination: StartingView())
+    }
+}
+
+struct ThirdView: View {
+    var body: some View {
+        Text("The third view. How do you get here?")
+    }
+}
+
+
+struct FinalView: View {
+    var body: some View {
+        Text("The final view.")
+        
+        NavigationLink("Click me!", destination: SecondaryView())
     }
 }
 
