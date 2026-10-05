@@ -11,7 +11,26 @@ enum CommunicationError: Error {
     case cancelledByUser
     case rejectedByServer(reason: String)
     case unknown
+
+    var errorDescription: String? {
+        switch self {
+        case .networkServiceUnavailable:
+            return "The network service is currently unavailable."
+        case .invalidMessage(let message):
+            return "The message is invalid: \(message)"
+        case .timedOut(let waitTime):
+            return "The request timed out after \(waitTime) seconds."
+        case .cancelledByUser:
+            return "The operation was cancelled by the user."
+        case .rejectedByServer(let reason):
+            return "The server rejected the packet: \(reason)"
+        case .unknown:
+            return "An unknown error occurred."
+        }
+    }
 }
+
+
 
 func sendPacket() throws {
     let randomNumber = Int.random(in: 0..<6)
@@ -38,6 +57,8 @@ func sendPacket() throws {
 
 do {
     try sendPacket()
+} catch {
+    print(error.localizedDescription)
 }
 
 /*:

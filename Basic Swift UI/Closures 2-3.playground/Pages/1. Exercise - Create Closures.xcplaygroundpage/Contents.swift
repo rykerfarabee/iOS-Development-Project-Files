@@ -5,12 +5,27 @@
 
  Create a closure assigned to a constant `blankClosure` that has no parameters and no return value.
  */
+var blankClosure: () -> Void = {
 
+}
 
 //:   Create a closure assigned to a constant `fourClosure` that has no parameters and returns an `Int`. The body of the closure should always return the value 4. Call the closure four times.
-
-
+let fourClosure: () -> Int = {
+    4
+}
+let callOne = fourClosure()
+let callTwo = fourClosure()
+let callThree = fourClosure()
+let callFour = fourClosure()
 //:  Create a closure assigned to a constant `greeting` that accepts a `name` string argument with no return value. Within the body of the closure, print the argument. Call the closure four times using "Gary", "Jane", "Rick", and "Beth" as arguments.
+let greeting = { (name: String) -> Void in
+    print(name)
+}
+
+greeting("Gary")
+greeting("Jane")
+greeting("Rick")
+greeting("Beth")
 
 
 /*:

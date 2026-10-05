@@ -31,13 +31,31 @@ func sendPacket() throws {
         throw CommunicationError.unknown
     }
 }
+do {
+    try sendPacket()
+    print("Packet sent successfully!")
+} catch CommunicationError.networkServiceUnavailable {
+    print("The network service is currently unavailable.")
+} catch CommunicationError.invalidMessage(let message) {
+    print("The message is invalid: \(message)")
+} catch CommunicationError.timedOut(let waitTime) {
+    print("The request timed out after \(waitTime) seconds.")
+} catch CommunicationError.cancelledByUser {
+    print("The operation was cancelled by the user.")
+} catch CommunicationError.rejectedByServer(let reason) {
+    print("The server rejected the packet: \(reason)")
+} catch CommunicationError.unknown {
+    print("An unknown error occurred.")
+} catch {
+    print("An unexpected error occurred: \(error)")
+}
 
 /*:
  First, remove the question mark from `try?` so that errors from `sendPacket` will be caught. Then, add a `catch` statement for each error. If the error has an associated value, assign that value to a constant with an appropriate name. The first one has been created for you.
  */
 
 do {
-    try? sendPacket()
+    try sendPacket()
 } catch CommunicationError.networkServiceUnavailable {
     
 }

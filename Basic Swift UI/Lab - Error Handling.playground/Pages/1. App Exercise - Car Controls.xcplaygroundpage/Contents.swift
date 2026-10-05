@@ -4,13 +4,18 @@
  You are building an app that allows remote control of a new car. A function `startEngine()` has been created for you. If the gas tank is empty, an error called `RemoteError.outOfGas` should be thrown. Create an enum called `RemoteError` that conforms to the Error protocol, add the `outOfGas` case, then throw it in the startEngine function.
  */
 
+enum RemoteError: Error {
+    case outOfGas
+    case notInPark
+}
+
 var engineRunning = false
 
 func startEngine(gallonsGasInTank: Int) throws {
-    if gallonsGasInTank >= 0 {
+    if gallonsGasInTank > 0 {
         engineRunning = true
     } else {
-        // Throw an error
+        throw RemoteError.outOfGas
     }
 }
 
@@ -18,15 +23,21 @@ func startEngine(gallonsGasInTank: Int) throws {
 
 var currentTemperature: Int = 81
 
-func turnOnClimateControl(temp: Int) {
+func turnOnClimateControl(temp: Int, gallonsGasInTank: Int) throws {
     if engineRunning == false {
-        // Start engine
+        try startEngine(gallonsGasInTank: gallonsGasInTank)
     }
     
     currentTemperature = temp
 }
 
+
 //:  Now use a `do`/`catch` statement to try calling `turnOnClimateControl(temp:)`. Print any caught errors to the log.
+do {
+    try turnOnClimateControl(temp: 72, gallonsGasInTank: 0)
+} catch {
+    print(error)
+}
 
 
 //:  Lastly, users should be able to lock and unlock the doors of their car remotely. This function should only work if the car is currently in park. A `Gear` enum has been provided; create a throwing function called `toggleDoorLocks` that checks whether the car is in park, toggling the `locked` variable if so and throwing an error if not. Add an appropriate error to the RemoteError enum cases for this purpose.
@@ -38,7 +49,20 @@ enum Gear {
 var selectedGear: Gear = .drive
 var locked = true
 
+func toggleDoorLocks() throws {
+    if selectedGear == .park {
+        locked.toggle()
+    } else {
+        throw RemoteError.notInPark
+    }
+}
+
 //:  Test out your `toggleDoorLocks` function in a do/catch statement.
+do {
+    try toggleDoorLocks()
+} catch {
+    print(error)
+}
 
 
 /*:

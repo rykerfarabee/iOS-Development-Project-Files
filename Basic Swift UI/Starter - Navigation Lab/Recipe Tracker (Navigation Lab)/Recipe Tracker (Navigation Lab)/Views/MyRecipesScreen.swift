@@ -5,7 +5,6 @@
 //  Created by Jane Madsen on 10/8/25.
 //
 
-
 import SwiftUI
 
 struct MyRecipesScreen: View {
@@ -13,12 +12,23 @@ struct MyRecipesScreen: View {
     @State private var showingAddRecipe = false
     
     var body: some View {
-        List(recipes) { recipe in
-            Text(recipe.title)
+        NavigationStack {
+            List(recipes) { recipe in
+                NavigationLink {
+                    RecipeDetailScreen(recipe: recipe)
+                } label: {
+                    Text(recipe.title)
+                }
+            }
+            .toolbar {
+                Button(action: { showingAddRecipe = true }) {
+                    Image(systemName: "plus")
+                }
+            }
         }
-        .toolbar {
-            Button(action: { showingAddRecipe = true}) {
-                Image(systemName: "plus")
+        .sheet(isPresented: $showingAddRecipe) {
+            NavigationStack {
+                AddRecipeSheet(recipes: $recipes)
             }
         }
     }
@@ -63,3 +73,4 @@ struct AddRecipeSheet: View {
 #Preview {
     MyRecipesScreen()
 }
+

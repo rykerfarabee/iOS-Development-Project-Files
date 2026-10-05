@@ -8,27 +8,29 @@
 import SwiftUI
 
 struct RecipeDetailScreen: View {
+    let recipe: Recipe
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Text("Recipe Title")
+                Text(recipe.title)
                     .font(.largeTitle)
                     .bold()
 
                 Text("Ingredients")
                     .bold()
                     .font(.headline)
-                Text("Ingredients go here")
+                Text(recipe.ingredients)
 
                 Text("Instructions")
                     .bold()
                     .font(.headline)
-                Text("Instructions go here")
+                Text(recipe.instructions)
 
                 Spacer()
             }
             .padding()
         }
-        .navigationTitle("Recipe")
+        .navigationTitle(recipe.title)
     }
 }
