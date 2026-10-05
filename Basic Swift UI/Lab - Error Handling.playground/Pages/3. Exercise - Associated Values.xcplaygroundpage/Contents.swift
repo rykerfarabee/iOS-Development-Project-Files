@@ -54,12 +54,6 @@ do {
  First, remove the question mark from `try?` so that errors from `sendPacket` will be caught. Then, add a `catch` statement for each error. If the error has an associated value, assign that value to a constant with an appropriate name. The first one has been created for you.
  */
 
-do {
-    try sendPacket()
-} catch CommunicationError.networkServiceUnavailable {
-    
-}
-
 /*:
  In the body of each catch statement, print a message that describes the error in plain English. Make sure that associated values are included in the print statement. For example, the `invalidMessage(let message)` case might print, `"Communication error due to invalid message: \(message)"`
  
