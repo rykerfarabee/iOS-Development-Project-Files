@@ -36,3 +36,33 @@
     //  Modify your function to be able to identify a bridge made out of any characters, not just hash marks. Each bridge can only be constructed of one character, or else it doesn't count (i.e., "0000n0000" would not be a valid bridge.)
 
 import Foundation
+func countBridges(_ input: String) -> Int {
+    let rows = input.components(separatedBy: "/")
+    var bridgeCount = 0
+
+    for row in rows {
+        if !row.contains(" ") {
+            bridgeCount += 1
+        }
+    }
+
+    for column in 0..<rows[0].count {
+        var isBridge = true
+
+        for row in rows {
+            let index = row.index(row.startIndex, offsetBy: column)
+
+            if row[index] == " " {
+                isBridge = false
+            }
+        }
+
+        if isBridge {
+            bridgeCount += 1
+        }
+    }
+
+    return bridgeCount
+}
+print(countBridges("#########/#       #/#   #   #/#   #   #/#### ####/#   #   #/#   #   #/#       #/#########"))
+

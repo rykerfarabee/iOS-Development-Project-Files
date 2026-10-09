@@ -18,3 +18,4 @@ enum LibrarySection{
     case fiction, nonFiction, reference, periodicals
 }
 let currentSelection: LibrarySection = .periodicals
+
