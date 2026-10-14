@@ -15,3 +15,26 @@
     //  Like before, you are not expected to understand every element of the page, but take notes in a comment on this challenge about what you can glean from the information.
 
 import Foundation
+func selectionSort(_ array: [Int]) -> [Int] {
+    var numbers = array
+    let count = numbers.count
+    
+    for pass in 0..<count {
+            var minIndex = pass
+
+            for index in (pass + 1)..<count {
+                if numbers[index] < numbers[minIndex] {
+                    minIndex = index
+                }
+            }
+
+            if minIndex != pass {
+                let oldValue = numbers[pass]
+                numbers[pass] = numbers[minIndex]
+                numbers[minIndex] = oldValue
+            }
+        }
+
+    return numbers
+}
+selectionSort([15, 5, 6, 7, 2, 3, 45, 12])

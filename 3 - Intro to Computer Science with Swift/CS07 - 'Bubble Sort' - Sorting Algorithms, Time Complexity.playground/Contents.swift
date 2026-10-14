@@ -17,4 +17,19 @@
     //  This is an article with complicated computer science theory; you do not need to understand the entire history of computing after reading one Wiki page. Take notes in a comment in this challenge on what you do glean and learn about the different sorting algorithms as you skim through.
 
 import Foundation
-
+func bubbleSort(_ array: [Int]) -> [Int] {
+    var numbers = array
+    let count = numbers.count
+    
+    for pass in 0..<count {
+        for index in 0..<(count - pass - 1) {
+            if numbers[index] > numbers[index + 1] {
+                           let oldIndex = numbers[index]
+                           numbers[index] = numbers[index + 1]
+                           numbers[index + 1] = oldIndex
+                       }
+        }
+    }
+    return numbers
+}
+bubbleSort([15, 5, 6, 7, 2, 3, 45, 12])
