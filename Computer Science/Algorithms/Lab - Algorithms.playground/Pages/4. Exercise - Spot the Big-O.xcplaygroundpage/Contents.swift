@@ -53,7 +53,7 @@ func printHighestAndLowest(_ playCounts: [Int]) {
 }
 
 // Function D
-func printPopularPairs(_ playCounts: [Int]) {
+func popularPairs(_ playCounts: [Int]) {
     var steps = 0
     var popularPairs = 0
     for firstCount in playCounts {
@@ -61,6 +61,14 @@ func printPopularPairs(_ playCounts: [Int]) {
             // Add steps += 1 here
             if firstCount + secondCount > 15 {
                 popularPairs += 1
+                for firstCount in playCounts {
+                    for secondCount in playCounts {
+                        steps += 1
+                        if firstCount + secondCount > 15 {
+                            popularPairs += 1
+                        }
+                    }
+                }
             }
         }
     }
@@ -79,32 +87,52 @@ func printTopThree(_ playCounts: [Int]) {
 }
 
 
+
+
+
 //:  Function D is missing its step counter. Add `steps += 1` on the line that says `// Add steps += 1 here`. Do not move it anywhere else.
 
 
 
-
+//for firstCount in playCounts {
+//    for secondCount in playCounts {
+//        steps += 1
+//        if firstCount + secondCount > 15 {
+//            popularPairs += 1
+//        }
+//    }
+//}
+//
 
 //:  Before you run anything, fill in the "Big-O guess" and "Steps at 10" columns of the table below. Use O(1), O(n) or O(n²).
 
 
 /*
  Function | Big-O guess | Steps at 10 | Steps at 100
- A        |             |             |
- B        |             |             |
- C        |             |             |
- D        |             |             |
- E        |             |             |
+ A        | O(1)        | 1           | 1
+ B        | O(n)        | 10          | 100
+ C        | O(n)        | 20          | 200
+ D        | O(n²)       | 100         | 10000
+ E        | O(1)        | 3           | 3
  */
+
 
 
 //:  Call each of the five functions with `playCounts` and observe the printout. Then change `playCounts` at the top of the page to `Array(1...100)` and run the page again. Fill in the "Steps at 100" column.
 
-
-
-
+/*
+ Function | Big-O guess | Steps at 10 | Steps at 100
+ A        | O(1)        | 1           | 1
+ B        | O(n)        | 10          | 100
+ C        | O(n)        | 20          | 200
+ D        | O(n²)       | 100         | 10000
+ E        | O(1)        | 3           | 3
+ */
 
 //:  Function C has two loops, but it is not O(n²). In a comment, explain why.
+
+// Function C is O(n) because the two loops run one after the other,
+// not inside each other. The work doubles, rather than squares.
 
 
 
@@ -113,6 +141,8 @@ func printTopThree(_ playCounts: [Int]) {
 //:  Function E has a loop, but it is O(1). In a comment, explain why.
 
 
+// Function E is O(1) because the loop always runs exactly 3 times,
+// no matter how large the array is.
 
 
 

@@ -47,12 +47,6 @@ _ = hasDuplicatesFast(recentlyPlayed)
 // Why the fast version is wrong:
 
 
-//:  Fix the fast version. On the line that says `// Add the insert here`, add `seenSongIDs.insert(songID)`. Run the page again and check that both versions now find the duplicate.
-
-
-
-
-
 //:  Both functions below get 100 song IDs with no repeats, so neither one can stop early. Before you run them, predict the steps for each one in a comment. Then fill in the Big-O for each.
 
 
@@ -69,6 +63,11 @@ _ = hasDuplicatesFast(longHistory)
 
 
 //:  In a comment, explain why `seenSongIDs.contains(songID)` is faster than searching an array for the same ID.
+// swift
+
+// seenSongIDs.contains(songID) is faster when seenSongIDs is a Set because
+// a Set uses hashing to find an ID in O(1) average time, while searching
+// an array takes O(n) time because it may need to check every element.
 
 
 

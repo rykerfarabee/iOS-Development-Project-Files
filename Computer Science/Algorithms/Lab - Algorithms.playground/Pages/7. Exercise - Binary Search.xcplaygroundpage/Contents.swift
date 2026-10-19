@@ -35,11 +35,6 @@ let mediumLibrary = Array(1...100)
 let largeLibrary = Array(1...1000)
 
 
-//:  On the line that says `// Add the low, middle and high print here`, add `print("low: \(low), middle: \(middle), high: \(high)")`. This shows you how the search area shrinks each round.
-
-
-
-
 
 //:  Before you run the call below, predict how many checks it takes to find song 700 in `largeLibrary`. Write your prediction in a comment. After you run it, look at the low, middle and high lines in the console. In a comment, describe what happens to the distance between `low` and `high` each round.
 
@@ -77,6 +72,10 @@ _ = binarySearch(for: 3, in: unsortedSongIDs)
 //:  In a comment, explain what O(log n) means, using your table as the example.
 
 
+//An O(log n) means the number of steps grows logarithmically as the
+//# table gets larger. For example, binary search checks the middle
+//# row and eliminates half of the remaining rows each time, so even
+//# if the table doubles in size, it only takes about one extra step.
 
 
 

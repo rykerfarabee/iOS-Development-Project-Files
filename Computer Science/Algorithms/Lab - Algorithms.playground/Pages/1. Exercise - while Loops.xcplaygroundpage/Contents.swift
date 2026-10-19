@@ -5,23 +5,38 @@
 
  Create a variable called `secondsUntilDrop` and set it to `5`. Write a `while` loop that prints the seconds left, then subtracts 1, until `secondsUntilDrop` reaches 0. After the loop, print "Drop!" Run it and check the printout.
  */
+
 var secondsUntilDrop = 5
+
 while secondsUntilDrop > 0 {
     print(secondsUntilDrop)
-    secondsUntilDrop   -= 1
+    secondsUntilDrop -= 1
 }
+
 print("Drop!")
 
+//5
+//4
+//3
+//2
+//1
 
 
 //:  A new song starts with 50 plays a day, and its daily plays double every day. Create a variable called `dailyPlays` set to `50` and a variable called `daysSinceRelease` set to `0`. Write a `while` loop that doubles `dailyPlays` and adds 1 to `daysSinceRelease` until `dailyPlays` is at least 10,000. After the loop, print `daysSinceRelease`. Run it and check the printout.
+
+
 var dailyPlays = 50
 var daysSinceRelease = 0
+
 while dailyPlays < 10000 {
-    daysSinceRelease += 1
     dailyPlays *= 2
+    daysSinceRelease += 1
 }
+
 print(daysSinceRelease)
+
+
+//8
 
 
 
@@ -33,11 +48,18 @@ print(daysSinceRelease)
 //     print("Volume: \(volumeLevel)")
 // }
 
-// Why it never stops: It never changes the value of volumeLevel
-var volumeLevel = 0
-while volumeLevel < 10 {
-    print("Volume: \(volumeLevel)")
-    volumeLevel += 1
+// Why it never stops:
+
+//The loop would never stop because its condition stays true—the variable controlling the loop is not changed in a way that lets it eventually reach the stopping condition.
+
+
+// The loop never stops because the value used in its condition never reaches the value needed to make the condition false.
+
+var volume = 0
+
+while volume < 10 {
+    print("Volume: \(volume)")
+    volume += 1
 }
 
 

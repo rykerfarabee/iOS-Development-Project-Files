@@ -7,7 +7,7 @@
  */
 
 
-let librarySize = 10
+let librarySize = 100
 let songIDs = Array(1...librarySize)
 
 // Makes every possible two-song mix from the library
@@ -68,10 +68,13 @@ func findLastSong(in songIDs: [Int]) -> Int {
 //:  Before you run anything, rank the four functions in a comment from slowest-growing to fastest-growing. Write the Big-O next to each one.
 
 
-// Slowest-growing:
+// Ranked from slowest-growing to fastest-growing:
+// 1. mixEveryPair(from:)       — O(n²)
+// 2. addUpListeningTime(for:)  — O(n)
+// 3. findLastSong(in:)         — O(log n)
+// 4. showNowPlaying(in:)       — O(1)
 //
-//
-// Fastest-growing:
+
 
 
 //:  Run the prints below and fill in the "Steps at 10" column. Then change `librarySize` at the top of the page to `100`, run the page again, and fill in the "Steps at 100" column.
@@ -82,24 +85,30 @@ print("showNowPlaying: \(showNowPlaying(in: songIDs)) steps")
 print("addUpListeningTime: \(addUpListeningTime(for: songIDs)) steps")
 print("findLastSong: \(findLastSong(in: songIDs)) steps")
 
-/*
- Function           | Steps at 10 | Steps at 100
- mixEveryPair       |             |
- showNowPlaying     |             |
- addUpListeningTime |             |
- findLastSong       |             |
- */
+ /*
+  Function           | Steps at 10 | Steps at 100
+  mixEveryPair       |     100     |    10000
+  showNowPlaying     |      1      |        1
+  addUpListeningTime |     10      |      100
+  findLastSong       |      4      |        7
+  */
 
 
 //:  In a comment, answer each question. Did your ranking hold up? If not, which one surprised you and why?
-
-
+// Yes the ranks held up and the one that surpised me the most was o(log n) and it surprised me with how much faster it ran than the other o(n)s that had been ranked
+//
 
 
 
 //:  The app is about to grow to 1,000,000 songs. Which function would you rewrite first? In a comment, explain your choice using Big-O.
 
-
+//
+// I would rewrite mixEveryPair first because it has O(n²) time complexity.
+// With 1,000,000 songs, it would perform about 1,000,000,000,000 iterations.
+// This grows much faster than O(n), O(log n), or O(1), so optimizing it
+// would make the biggest difference in performance.
+//
+//
 
 
 
