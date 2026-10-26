@@ -40,12 +40,36 @@ cashier.takePayment()
 //:  In a comment, explain which SOLID principle `FoodTruckWorker` breaks.
 
 
-// Principle:
+// Principle: Interface segregation principle because it forces every worker to use cook and take payment even though they only need one
 
 
 //:  Split `FoodTruckWorker` into two protocols called `Cooking` and `PaymentTaking`, each with one function. Delete `FoodTruckWorker`. Change `Chef` and `Cashier` so each one conforms only to the protocol it needs, and delete their empty functions. Run the page and check that the printout has not changed.
 
+//protocol Cooking{ {
+//func cook()
+//}
 
+//protocol PaymentTaking {
+//func takePayment()
+//}
+
+//class Chef: Cooking {
+//func cook() {
+//print("Cooking street tacos")
+//}
+//}
+
+//class Cashier: PaymentTaking {
+//func takePayment() {
+//print("Taking payment")
+//}
+//}
+
+//let chef = Chef()
+//chef.cook()
+
+//let cashier = Cashier()
+//cashier.takePayment()
 
 
 
@@ -69,7 +93,11 @@ class SpeakerNotifier: OrderNotifier {
 }
 
 class OrderWindow {
-    private let notifier = TextNotifier()
+    private let notifier: OrderNotifier
+
+    init(notifier: OrderNotifier) {
+        self.notifier = notifier
+    }
 
     func callOrder(for customerName: String) {
         notifier.notify("\(customerName), your order is ready!")
@@ -78,9 +106,11 @@ class OrderWindow {
 
 
 //:  `OrderWindow` creates a `TextNotifier` itself, so it can only ever send texts. Change `OrderWindow` so its `notifier` property is an `OrderNotifier` that is passed in through an initializer. Then create two `OrderWindow` instances, one with a `TextNotifier` and one with a `SpeakerNotifier`. Call `callOrder(for:)` on both and observe the printout.
+let textOrderWindow = OrderWindow(notifier: TextNotifier())
+let speakerOrderWindow = OrderWindow(notifier: SpeakerNotifier())
 
-
-
+textOrderWindow.callOrder(for: "Alice")
+speakerOrderWindow.callOrder(for: "Bob")
 
 
 //:  In a comment, name the SOLID principle that `MenuBoard` breaks and explain why.
@@ -98,8 +128,8 @@ class MenuBoard {
     }
 }
 
-// Principle:
-// Why:
+// Principle: Open close
+// Why: Need new code every time you add an item
 
 
 /*:

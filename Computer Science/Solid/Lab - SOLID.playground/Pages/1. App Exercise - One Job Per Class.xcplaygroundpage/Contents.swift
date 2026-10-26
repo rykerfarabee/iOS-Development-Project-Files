@@ -22,17 +22,21 @@ class FoodTruckOrder {
         itemNames.append(itemName)
         total += price
     }
+}
 
-    func printReceipt() {
-        print("Receipt for \(customerName)")
-        for itemName in itemNames {
+class ReceiptPrinter {
+    func printReceipt(for order: FoodTruckOrder) {
+        print("Receipt for \(order.customerName)")
+        for itemName in order.itemNames {
             print("- \(itemName)")
         }
-        print("Total: $\(total)")
+        print("Total: $\(order.total)")
     }
+}
 
-    func sendOrderReadyText() {
-        print("Texting \(customerName): Your order is ready!")
+class OrderTexter {
+    func sendOrderReadyText(for order: FoodTruckOrder) {
+        print("Texting \(order.customerName): Your order is ready!")
     }
 }
 
@@ -44,32 +48,34 @@ tacoOrder.addItem(named: "Horchata", price: 3.25)
 //:  In a comment, write what each letter in SOLID stands for. Try it from memory before you check your notes.
 
 
-// S:
-// O:
-// L:
-// I:
-// D:
+// S: Single responsibility principle
+// O: open close principle
+// L: Liskov substitution
+// I: Interface seperation principle
+// D: Dependency Inversion principle
 
 
 //:  `FoodTruckOrder` does three different jobs. In a comment, name each job.
 
 
-// Job 1:
-// Job 2:
-// Job 3:
+// Job 1: Add item
+// Job 2: Send receipt
+// Job 3: Send ready text
 
 
 //:  Split the class. Create a class called `ReceiptPrinter` with a function called `printReceipt(for order: FoodTruckOrder)`. Create a class called `OrderTexter` with a function called `sendOrderReadyText(for order: FoodTruckOrder)`. Move the code from `FoodTruckOrder` into the new functions, then delete `printReceipt()` and `sendOrderReadyText()` from `FoodTruckOrder`. Create an instance of each new class, call both functions with `tacoOrder`, and observe the printout.
-
-
+let receiptPrinter = ReceiptPrinter()
+let orderTexter = OrderTexter()
+receiptPrinter.printReceipt(for: tacoOrder)
+orderTexter.sendOrderReadyText(for: tacoOrder)
 
 
 
 //:  The owner wants the text message to include the order total. In a comment, say which class you would open to make that change. Then explain why that is easier than it was before you split the class.
 
 
-// Class to open:
-// Why it's easier:
+// Class to open: Order texter
+// Why it's easier: It says he want it in the text
 
 
 /*:

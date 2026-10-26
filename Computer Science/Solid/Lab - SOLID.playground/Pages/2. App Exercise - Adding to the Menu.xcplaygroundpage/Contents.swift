@@ -14,6 +14,8 @@ func prepMinutes(for itemName: String) -> Int {
         return 5
     } else if itemName == "Burrito" {
         return 8
+    } else if itemName == "Nachos" {
+        return 7
     }
     return 0
 }
@@ -30,7 +32,7 @@ print(prepMinutes(for: "Burrito"))
 //:  In a comment, explain why `prepMinutes(for:)` breaks the Open/Closed principle.
 
 
-// Why it breaks Open/Closed:
+// Why it breaks Open/Closed: Because you have to go back and add to the function every time you add an item
 
 
 //:  Every truck below is a `FoodTruck`, and `serveLunch(from:)` works with any `FoodTruck`.
@@ -63,7 +65,7 @@ func serveLunch(from truck: FoodTruck) {
 
 
 //:  Call `serveLunch(from: TacoTruck())` and observe the printout.
-
+print(serveLunch(from: TacoTruck()))
 
 
 
@@ -71,14 +73,14 @@ func serveLunch(from truck: FoodTruck) {
 //:  Predict what will happen when you call `serveLunch(from: IceCreamTruck())`. Write your prediction in a comment. Then add the call below your prediction and run it. The page will stop with an error.
 
 
-// Prediction:
-
+// Prediction: crash breaking L
+serveLunch(from: IceCreamTruck())
 
 //:  In a comment, explain which SOLID principle `IceCreamTruck` breaks and why.
 
 
-// Principle:
-// Why:
+// Principle: Liskov substitution
+// Why: Cannot replace food truck
 
 
 /*:

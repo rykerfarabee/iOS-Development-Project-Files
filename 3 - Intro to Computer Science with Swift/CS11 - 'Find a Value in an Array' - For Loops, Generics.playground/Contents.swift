@@ -21,3 +21,7 @@
     //  Create another function. Accomplish the same goal using generics instead of function overloading.
 
 import Foundation
+
+func check<T: Equatable>(_ a: [T], _ x: T) -> Bool {
+    a.contains(x)
+}
